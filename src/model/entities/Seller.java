@@ -1,4 +1,4 @@
-package Entities;
+package model.entities;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -12,12 +12,15 @@ public class Seller implements Serializable {
     private Date birthDate;
     private Double baseSalary;
 
-    public Seller(Integer id, String name, String email, Date birthDate, Double baseSalary) {
+    private Department department;
+
+    public Seller(Integer id, String name, String email, Date birthDate, Double baseSalary, Department department) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.birthDate = birthDate;
         this.baseSalary = baseSalary;
+        this.department = department;
     }
 
     public Integer getId() {
@@ -60,6 +63,14 @@ public class Seller implements Serializable {
         this.baseSalary = baseSalary;
     }
 
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -81,6 +92,7 @@ public class Seller implements Serializable {
                 ", email='" + email + '\'' +
                 ", birthDate=" + birthDate +
                 ", baseSalary=" + baseSalary +
+                ", department=" + department +
                 '}';
     }
 }
